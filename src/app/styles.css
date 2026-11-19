@@ -1,0 +1,68 @@
+:root {
+  --bg: #f4f5f7;
+  --panel: #ffffff;
+  --text: #16181d;
+  --muted: #5f6673;
+  --border: #dfe2e8;
+  --accent: #0f9d8a;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d0f12;
+    --panel: #15181d;
+    --text: #e8eaee;
+    --muted: #9aa2af;
+    --border: #262b33;
+    --accent: #2cc9b2;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 15px/1.5 system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+}
+.wrap { max-width: 960px; margin: 0 auto; padding: 28px 16px 48px; }
+h1 { margin: 0 0 4px; font-size: 28px; letter-spacing: -0.4px; }
+header p { margin: 0; color: var(--muted); max-width: 720px; }
+nav { display: flex; gap: 16px; margin-top: 10px; }
+a { color: var(--accent); }
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  align-items: end;
+  margin: 20px 0 14px;
+}
+label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--muted); }
+select, button {
+  font: inherit;
+  font-size: 14px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+button { cursor: pointer; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.frame {
+  background: #000;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+canvas { display: block; width: 100%; height: auto; image-rendering: auto; }
+.bar { height: 4px; background: #222; }
+.bar div { height: 100%; width: 0; background: var(--accent); transition: width 0.2s; }
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 14px;
+}
+@media (max-width: 600px) { .stats { grid-template-columns: repeat(2, 1fr); } }
+.stats div { background: var(--panel); border: 1px solid var(--border); border-radius: 8px; padding: 8px 12px; }
+.stats small { display: block; color: var(--muted); font-size: 12px; }
+.stats b { font: 600 17px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
