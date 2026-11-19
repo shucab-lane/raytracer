@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A physically based path tracer written from scratch in TypeScript, rendering in parallel Web Workers." />
+    <title>Path Tracer</title>
+    <script type="module" crossorigin src="/raytracer/assets/index-DmeUUSXp.js"></script>
+    <link rel="stylesheet" crossorigin href="/raytracer/assets/index-DSa3M9Fn.css">
+  </head>
+  <body>
+    <div class="wrap">
+      <header>
+        <h1>Path Tracer</h1>
+        <p>
+          A physically based ray tracer written from scratch in TypeScript. Every pixel is computed by tracing light
+          paths through the scene, with diffuse, metal and glass materials, depth of field and a BVH, rendered in
+          parallel across Web Workers and refined progressively.
+        </p>
+        <nav>
+          <a href="https://github.com/shucab-lane/raytracer">Source on GitHub</a>
+          <a href="https://github.com/shucab-lane/raytracer#how-it-works">How it works</a>
+        </nav>
+      </header>
+
+      <div class="controls">
+        <label>Scene <select id="scene"></select></label>
+        <label>Resolution
+          <select id="resolution">
+            <option value="480x270">480 × 270</option>
+            <option value="800x450" selected>800 × 450</option>
+            <option value="1280x720">1280 × 720</option>
+          </select>
+        </label>
+        <label>Samples / pixel
+          <select id="spp">
+            <option value="16">16</option>
+            <option value="64" selected>64</option>
+            <option value="256">256</option>
+            <option value="1024">1024</option>
+          </select>
+        </label>
+        <label>Threads <select id="threads"></select></label>
+        <button id="restart" class="primary">Render</button>
+        <button id="pause">Pause</button>
+        <button id="save">Save PNG</button>
+      </div>
+
+      <div class="frame">
+        <canvas id="canvas" width="800" height="450"></canvas>
+        <div class="bar"><div id="progress"></div></div>
+      </div>
+
+      <div class="stats">
+        <div><small>Samples per pixel</small><b id="s-samples">–</b></div>
+        <div><small>Throughput</small><b id="s-rays">–</b></div>
+        <div><small>Render time</small><b id="s-time">–</b></div>
+        <div><small>Scene</small><b id="s-objects">–</b></div>
+      </div>
+    </div>
+  </body>
+</html>
